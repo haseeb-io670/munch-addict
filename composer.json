@@ -1,0 +1,21 @@
+{
+    "name": "codeffy/chilli-bomba",
+    "description": "Candy Shop.",
+    "type": "project",
+    "require": {
+        "php": "^8.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Codeffy\\ChilliBomba\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aliyan-12",
+            "email": "alyannasir225@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
