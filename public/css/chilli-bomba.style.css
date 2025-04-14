@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 6.5rem;
   font-weight: 800;
-  -webkit-text-stroke: 3px #1C132F;
+  
   font-family: var(--font-roc);
 }
 
@@ -441,7 +441,6 @@ a:hover {
   width: 100%;
   max-width: 1300px;
   box-sizing: border-box;
-  overflow-x: visible;
 }
 
 .about-content {
@@ -582,15 +581,12 @@ footer::before {
 
 /* Shop Page */
 .shop-hero {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background-color: var(--yellow);
   text-align: center;
   position: relative;
 }
 
-.shop-hero::after {
-  display: none;
-}
 
 .shop-hero h1,
 .shop-hero p {
@@ -650,6 +646,8 @@ footer::before {
 
 /* Font Classes */
 .font-h1 {
+  text-shadow: 4px 4px 0 var(--dark);
+   -webkit-text-stroke: 3px #1C132F;
   font-family: var(--font-primary);
   letter-spacing: -.01em;
   text-transform: uppercase;
@@ -661,6 +659,8 @@ footer::before {
 }
 
 .font-h2 {
+  -webkit-text-stroke: 3px #19857E;
+  text-shadow: 4px 4px 0 var(--dark);
   letter-spacing: -.01em;
   text-transform: uppercase;
   margin-top: 0;
