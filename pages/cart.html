@@ -2,12 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Shopping Cart - Chilli Bomba</title>
+  <title>Shopping Cart - Global Munch</title>
   <meta content="View your spicy candy selections and complete your purchase." name="description">
-  <meta content="Shopping Cart - Chilli Bomba" property="og:title">
+  <meta content="Shopping Cart - Global Munch" property="og:title">
   <meta content="View your spicy candy selections and complete your purchase." property="og:description">
   <meta content="../public/images/63110b6db2d5a3a54be91925_%5BChilli%20Bomba%5D%20Open%20Graph.jpg" property="og:image">
-  <meta content="Shopping Cart - Chilli Bomba" property="twitter:title">
+  <meta content="Shopping Cart - Global Munch" property="twitter:title">
   <meta content="View your spicy candy selections and complete your purchase." property="twitter:description">
   <meta content="../public/images/63110b6db2d5a3a54be91925_%5BChilli%20Bomba%5D%20Open%20Graph.jpg" property="twitter:image">
   <meta property="og:type" content="website">
@@ -278,7 +278,7 @@
     <div class="container">
       <div class="navbar-logo">
         <a href="/">
-          <img src="../public/images/munch-addict.png" alt="Chilli Bomba Logo">
+          <img src="../public/images/munch-addict.png" alt="Global Munch Logo">
         </a>
       </div>
       <nav class="navbar-links">
@@ -368,7 +368,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Chilli Bomba Logo">
+          <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Global Munch Logo">
           <p class="font-p">Bringing the heat to your sweet treats since 2022.</p>
           <div class="social-links">
             <a href="#"><img src="../public/images/facebook-icon.svg" alt="Facebook"></a>
@@ -404,7 +404,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="font-p5 footer-copyright">© 2023 Chilli Bomba. All rights reserved.</p>
+        <p class="font-p5 footer-copyright">© 2023 Global Munch. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -461,7 +461,7 @@
     // Cart functionality
     document.addEventListener('DOMContentLoaded', function() {
       // Initialize cart from localStorage if it exists
-      let cart = JSON.parse(localStorage.getItem('chilliCart')) || [];
+      let cart = JSON.parse(localStorage.getItem('globalMunchCart')) || [];
       
       // Update cart display
       updateCartDisplay();
@@ -610,7 +610,7 @@
       
       // Save cart to localStorage
       function saveCart() {
-        localStorage.setItem('chilliCart', JSON.stringify(cart));
+        localStorage.setItem('globalMunchCart', JSON.stringify(cart));
       }
       
       // Checkout button

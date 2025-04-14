@@ -1,7 +1,7 @@
 // Cart functionality
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize cart from localStorage if it exists
-  let cart = JSON.parse(localStorage.getItem('chilliCart')) || [];
+  let cart = JSON.parse(localStorage.getItem('globalMunchCart')) || [];
   
   // Update cart count on page load
   updateCartCount();
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Save cart to localStorage
   function saveCart() {
-    localStorage.setItem('chilliCart', JSON.stringify(cart));
+    localStorage.setItem('globalMunchCart', JSON.stringify(cart));
   }
   
   // Show notification
