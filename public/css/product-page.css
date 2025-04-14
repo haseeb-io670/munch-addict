@@ -1,6 +1,8 @@
 /* Product Detail Page Styles */
 html {
   font-family: var(--font-primary);
+  overflow-x: hidden;
+
 }
 
 .product-detail {
@@ -432,6 +434,75 @@ html {
   .review-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+  }
+  
+  .product-content {
+    flex-direction: column;
+    gap: 2rem;
+    overflow-x: hidden;
+  }
+  
+  .product-gallery, 
+  .product-info {
+    width: 100%;
+  }
+  
+  .product-thumbnails {
+    justify-content: center;
+  }
+  
+  .product-main-image {
+    box-shadow: 5px 5px 0 0 var(--dark);
+  }
+  
+  .product-info h1 {
+    font-size: 2.5rem;
+  }
+  
+  .shipping-note {
+    padding: 1rem;
+    box-shadow: 3px 3px 0 0 var(--dark);
+  }
+  
+  .tab {
+    padding: 0.8rem 1rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Ensure mobile navbar doesn't cover content */
+  .product-detail {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Fix for extremely small screens */
+@media (max-width: 350px) {
+  .product-breadcrumb,
+  .product-rating,
+  .quantity-selector label {
+    font-size: 0.7rem;
+  }
+  
+  .product-info h1 {
+    font-size: 2rem;
+  }
+  
+  .tab {
+    padding: 0.6rem 0.8rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  
+  .quantity-controls {
+    max-width: 120px;
+  }
+  
+  #quantity {
+    width: 50px;
+  }
+  
+  .quantity-decrease,
+  .quantity-increase {
+    width: 35px;
+    height: 35px;
   }
 } 

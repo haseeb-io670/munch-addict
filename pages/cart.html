@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shopping Cart - Chilli Bomba</title>
+  <meta content="View your spicy candy selections and complete your purchase." name="description">
+  <meta content="Shopping Cart - Chilli Bomba" property="og:title">
+  <meta content="View your spicy candy selections and complete your purchase." property="og:description">
+  <meta content="../public/images/63110b6db2d5a3a54be91925_%5BChilli%20Bomba%5D%20Open%20Graph.jpg" property="og:image">
+  <meta content="Shopping Cart - Chilli Bomba" property="twitter:title">
+  <meta content="View your spicy candy selections and complete your purchase." property="twitter:description">
+  <meta content="../public/images/63110b6db2d5a3a54be91925_%5BChilli%20Bomba%5D%20Open%20Graph.jpg" property="twitter:image">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../public/css/chilli-bomba.webflow.css" rel="stylesheet" type="text/css">
+  <link href="../public/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+  <link href="../public/css/custom-fonts.css" rel="stylesheet" type="text/css">
+  <link href="../public/images/62ed40d01cef2848950ab6e5_icon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Changa:wght@400;700;800&family=Fredoka:wght@400;500;600;700&family=Kalam&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap" rel="stylesheet">
+  <script src="../public/js/jquery-3.6.0.min.js"></script>
+  <script src="../public/js/owl.carousel.min.js"></script>
+  <script src="../public/js/parallax.min.js"></script>
+  <style>
+    .cart-section {
+      padding: 5rem 0;
+      background-color: var(--pink);
+      min-height: 60vh;
+    }
+    
+    .cart-header {
+      margin-bottom: 2rem;
+      border-bottom: 3px solid var(--dark);
+      padding-bottom: 1rem;
+    }
+    
+    .cart-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--white);
+      border-radius: 1rem;
+      border: 3px solid var(--dark);
+      box-shadow: 8px 8px 0 0 var(--dark);
+      display: none;
+    }
+    
+    .cart-empty svg {
+      width: 80px;
+      height: 80px;
+      stroke: var(--red);
+      margin-bottom: 1.5rem;
+    }
+    
+    .cart-empty .btn-primary {
+      margin-top: 2rem;
+    }
+    
+    .cart-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 1rem;
+    }
+    
+    .cart-item {
+      background-color: var(--white);
+      border-radius: 1rem;
+      border: 3px solid var(--dark);
+      box-shadow: 5px 5px 0 0 var(--dark);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .cart-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 7px 7px 0 0 var(--dark);
+    }
+    
+    .cart-item td {
+      padding: 1rem;
+      vertical-align: middle;
+    }
+    
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 2px solid var(--dark);
+    }
+    
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cart-item-details {
+      padding-left: 1rem;
+    }
+    
+    .cart-item-title {
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .cart-item-price {
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--green);
+    }
+    
+    .cart-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--gray);
+      border: 2px solid var(--dark);
+      color: var(--dark);
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .quantity-btn:hover {
+      background-color: var(--red);
+      color: var(--white);
+    }
+    
+    .quantity-input {
+      width: 50px;
+      height: 40px;
+      text-align: center;
+      margin: 0 0.5rem;
+      border: 2px solid var(--dark);
+      border-radius: 0.5rem;
+      font-family: var(--font-primary);
+      font-weight: 800;
+    }
+    
+    .cart-item-total {
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .cart-item-remove {
+      cursor: pointer;
+      color: var(--red);
+      transition: all 0.3s ease;
+    }
+    
+    .cart-item-remove:hover {
+      transform: scale(1.2);
+    }
+    
+    .cart-summary {
+      background-color: var(--red);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 3px solid var(--dark);
+      box-shadow: 8px 8px 0 0 var(--dark);
+      color: var(--white);
+      margin-top: 2rem;
+    }
+    
+    .cart-summary-title {
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.5rem;
+      color: var(--white);
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-family: var(--font-alt);
+    }
+    
+    .summary-total {
+      border-top: 2px solid var(--white);
+      padding-top: 1rem;
+      margin-top: 1rem;
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+    
+    .checkout-btn {
+      width: 100%;
+      margin-top: 2rem;
+      background-color: var(--yellow);
+      color: var(--dark);
+      font-family: var(--font-primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+      border: 3px solid var(--dark);
+      box-shadow: 5px 5px 0 0 var(--dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .checkout-btn:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 0 var(--dark);
+    }
+    
+    @media (max-width: 768px) {
+      .cart-layout {
+        flex-direction: column;
+      }
+      
+      .cart-items {
+        margin-bottom: 2rem;
+      }
+      
+      .cart-item-image {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .cart-item-title {
+        font-size: 1.2rem;
+      }
+      
+      .cart-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .cart-table thead {
+        display: none;
+      }
+      
+      .cart-item {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+      }
+      
+      .cart-item td {
+        padding: 0.5rem;
+      }
+      
+      .cart-item-image {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-logo">
+        <a href="index.html">
+          <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Chilli Bomba Logo">
+        </a>
+      </div>
+      <nav class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="stores.html" class="nav-link">Stores</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="navbar-cart">
+        <a href="cart.html" class="cart-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="cart-section">
+    <div class="container">
+      <div class="cart-header">
+        <h1 class="font-h2">Your Shopping Cart</h1>
+      </div>
+      
+      <div class="cart-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <h2 class="font-h3">Your cart is empty</h2>
+        <p class="font-p">Looks like you haven't added any spicy treats to your cart yet.</p>
+        <a href="shop.html" class="btn-primary">Shop Now</a>
+      </div>
+      
+      <div class="cart-content">
+        <div class="cart-layout" style="display: flex; gap: 2rem;">
+          <div class="cart-items" style="flex: 3;">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th style="text-align: left; font-family: var(--font-primary); padding: 0.5rem;">Product</th>
+                  <th style="text-align: center; font-family: var(--font-primary); padding: 0.5rem;">Quantity</th>
+                  <th style="text-align: right; font-family: var(--font-primary); padding: 0.5rem;">Price</th>
+                  <th style="text-align: right; font-family: var(--font-primary); padding: 0.5rem;">Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="cart-sidebar" style="flex: 1;">
+            <div class="cart-summary">
+              <h3 class="font-h5 cart-summary-title">Order Summary</h3>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span id="cart-shipping">$4.99</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax</span>
+                <span id="cart-tax">$0.00</span>
+              </div>
+              <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+              </div>
+              <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Chilli Bomba Logo">
+          <p class="font-p">Bringing the heat to your sweet treats since 2022.</p>
+          <div class="social-links">
+            <a href="#"><img src="../public/images/facebook-icon.svg" alt="Facebook"></a>
+            <a href="#"><img src="../public/images/instagram-icon.svg" alt="Instagram"></a>
+            <a href="#"><img src="../public/images/twitter-icon.svg" alt="Twitter"></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="font-h5">Shop</h3>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html">Gummy Bears</a></li>
+            <li><a href="shop.html">Belts</a></li>
+            <li><a href="shop.html">Variety Packs</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 class="font-h5">Info</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="shipping.html">Shipping</a></li>
+            <li><a href="returns.html">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h3 class="font-h5">Newsletter</h3>
+          <p class="font-p">Subscribe for updates and special offers.</p>
+          <form>
+            <input type="email" placeholder="Your email" required>
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="font-p5 footer-copyright">© 2023 Chilli Bomba. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Mobile Navbar -->
+  <nav class="mobile-navbar">
+    <div class="container">
+      <a href="index.html" class="mobile-nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+      </a>
+      <a href="shop.html" class="mobile-nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Shop
+      </a>
+      <a href="cart.html" class="mobile-nav-item active">
+        <div class="icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="mobile-cart-count">0</span>
+        </div>
+        Cart
+      </a>
+      <a href="faq.html" class="mobile-nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        FAQ
+      </a>
+      <a href="#" class="mobile-nav-item menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Menu
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // Cart functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize cart from localStorage if it exists
+      let cart = JSON.parse(localStorage.getItem('chilliCart')) || [];
+      
+      // Update cart display
+      updateCartDisplay();
+      
+      // Function to update cart display
+      function updateCartDisplay() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartEmptyElement = document.querySelector('.cart-empty');
+        const cartContentElement = document.querySelector('.cart-content');
+        
+        // Update cart count in header and mobile
+        const cartCountElements = document.querySelectorAll('.cart-count, .mobile-cart-count');
+        cartCountElements.forEach(element => {
+          element.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        });
+        
+        // Show empty cart message if cart is empty
+        if (cart.length === 0) {
+          cartEmptyElement.style.display = 'block';
+          cartContentElement.style.display = 'none';
+          return;
+        }
+        
+        // Otherwise show cart content
+        cartEmptyElement.style.display = 'none';
+        cartContentElement.style.display = 'block';
+        
+        // Clear cart items container
+        cartItemsContainer.innerHTML = '';
+        
+        // Add cart items
+        cart.forEach((item, index) => {
+          const row = document.createElement('tr');
+          row.className = 'cart-item';
+          
+          const itemTotal = (item.price * item.quantity).toFixed(2);
+          
+          row.innerHTML = `
+            <td>
+              <div style="display: flex; align-items: center;">
+                <div class="cart-item-image">
+                  <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="cart-item-details">
+                  <div class="cart-item-title">${item.name}</div>
+                  <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="cart-quantity">
+                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="99" data-index="${index}">
+                <button class="quantity-btn increase" data-index="${index}">+</button>
+              </div>
+            </td>
+            <td style="text-align: right;">$${item.price.toFixed(2)}</td>
+            <td style="text-align: right;" class="cart-item-total">$${itemTotal}</td>
+            <td>
+              <div class="cart-item-remove" data-index="${index}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </td>
+          `;
+          
+          cartItemsContainer.appendChild(row);
+        });
+        
+        // Add event listeners to quantity buttons and remove buttons
+        document.querySelectorAll('.quantity-btn.decrease').forEach(button => {
+          button.addEventListener('click', function() {
+            decreaseQuantity(parseInt(this.dataset.index));
+          });
+        });
+        
+        document.querySelectorAll('.quantity-btn.increase').forEach(button => {
+          button.addEventListener('click', function() {
+            increaseQuantity(parseInt(this.dataset.index));
+          });
+        });
+        
+        document.querySelectorAll('.quantity-input').forEach(input => {
+          input.addEventListener('change', function() {
+            updateQuantity(parseInt(this.dataset.index), parseInt(this.value));
+          });
+        });
+        
+        document.querySelectorAll('.cart-item-remove').forEach(button => {
+          button.addEventListener('click', function() {
+            removeItem(parseInt(this.dataset.index));
+          });
+        });
+        
+        // Update summary
+        updateSummary();
+      }
+      
+      // Update cart summary
+      function updateSummary() {
+        const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const shipping = subtotal > 35 ? 0 : 4.99;
+        const tax = subtotal * 0.08; // 8% tax
+        const total = subtotal + shipping + tax;
+        
+        document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('cart-shipping').textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
+        document.getElementById('cart-tax').textContent = `$${tax.toFixed(2)}`;
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+      }
+      
+      // Decrease item quantity
+      function decreaseQuantity(index) {
+        if (cart[index].quantity > 1) {
+          cart[index].quantity--;
+          saveCart();
+          updateCartDisplay();
+        }
+      }
+      
+      // Increase item quantity
+      function increaseQuantity(index) {
+        cart[index].quantity++;
+        saveCart();
+        updateCartDisplay();
+      }
+      
+      // Update item quantity directly
+      function updateQuantity(index, quantity) {
+        if (quantity < 1) quantity = 1;
+        if (quantity > 99) quantity = 99;
+        
+        cart[index].quantity = quantity;
+        saveCart();
+        updateCartDisplay();
+      }
+      
+      // Remove item from cart
+      function removeItem(index) {
+        cart.splice(index, 1);
+        saveCart();
+        updateCartDisplay();
+      }
+      
+      // Save cart to localStorage
+      function saveCart() {
+        localStorage.setItem('chilliCart', JSON.stringify(cart));
+      }
+      
+      // Checkout button
+      document.querySelector('.checkout-btn').addEventListener('click', function() {
+        alert('Checkout functionality coming soon!');
+      });
+    });
+  </script>
+</body>
+</html> 

@@ -92,13 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add to cart functionality
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
   const cartCount = document.querySelector('.cart-count');
+  const mobileCartCount = document.querySelector('.mobile-cart-count');
   
   if (addToCartButtons.length > 0 && cartCount) {
     addToCartButtons.forEach(button => {
       button.addEventListener('click', () => {
         // Get current cart count and increment
         const currentCount = parseInt(cartCount.textContent);
-        cartCount.textContent = currentCount + 1;
+        const newCount = currentCount + 1;
+        
+        // Update regular cart count
+        cartCount.textContent = newCount;
+        
+        // Update mobile cart count if it exists
+        if (mobileCartCount) {
+          mobileCartCount.textContent = newCount;
+        }
+        
+        // Apply bounce animation to cart counts
+        cartCount.classList.add('cart-bounce');
+        if (mobileCartCount) {
+          mobileCartCount.classList.add('cart-bounce');
+        }
+        
+        setTimeout(() => {
+          cartCount.classList.remove('cart-bounce');
+          if (mobileCartCount) {
+            mobileCartCount.classList.remove('cart-bounce');
+          }
+        }, 300);
         
         // Change button text temporarily
         const originalText = button.textContent;
@@ -110,6 +132,28 @@ document.addEventListener('DOMContentLoaded', function() {
           button.classList.remove('added');
         }, 2000);
       });
+    });
+  }
+  
+  // Mobile menu toggle functionality
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navbarLinks = document.querySelector('.navbar-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // If we have the slide-in menu toggle, use it
+      if (mobileMenuToggle) {
+        mobileMenuToggle.click();
+      } else {
+        // Otherwise just toggle the navbar links visibility
+        if (navbarLinks) {
+          navbarLinks.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        }
+      }
     });
   }
 });
