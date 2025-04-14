@@ -11,9 +11,12 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="../public/css/chilli-bomba.webflow.css" rel="stylesheet" type="text/css">
   <link href="../public/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+  <link href="../public/css/custom-fonts.css" rel="stylesheet" type="text/css">
   <link href="../public/images/62ed40d01cef2848950ab6e5_icon.png" rel="shortcut icon" type="image/x-icon">
   <link href="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" rel="apple-touch-icon">
-  <link rel="stylesheet" href="https://use.typekit.net/mfx1uwn.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Changa:wght@400;700;800&family=Fredoka:wght@400;500;600;700&family=Kalam&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap" rel="stylesheet">
   <script src="../public/js/jquery-3.6.0.min.js"></script>
   <script src="../public/js/owl.carousel.min.js"></script>
   <script src="../public/js/parallax.min.js"></script>
@@ -162,6 +165,11 @@
         <a href="index.html">
           <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Chilli Bomba Logo">
         </a>
+      </div>
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <nav class="navbar-links">
         <a href="index.html" class="nav-link">Home</a>
@@ -327,11 +335,25 @@
     </div>
   </section>
 
-  <section class="shipping-info">
+  <!-- New CTA Section -->
+  <section class="cta-section">
     <div class="container">
-      <div class="shipping-banner">
-        <h2>Free Shipping on Orders Over $50</h2>
-        <p>We ship to the United States and Canada</p>
+      <div class="cta-container">
+        <div class="cta-content">
+          <h2 class="font-h2">Spice Up Your Candy Life</h2>
+          <p class="font-p">Join our spicy candy club and get exclusive offers, new flavor announcements, and more!</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn-primary">Join Now</a>
+            <a href="faq.html" class="btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="cta-image">
+          <img src="../public/images/products/gummy-bears.jpg" alt="Spicy Gummy Bears" class="cta-img">
+          <div class="cta-badge">
+            <span>FREE SHIPPING</span>
+            <span class="badge-highlight">on orders over $50</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -445,6 +467,26 @@
           setTimeout(() => {
             button.textContent = 'Add to Cart';
           }, 2000);
+        });
+      });
+
+      // Mobile menu functionality
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navbarLinks = document.querySelector('.navbar-links');
+      
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navbarLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close mobile menu when clicking on a link
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenuToggle.classList.remove('active');
+          navbarLinks.classList.remove('active');
+          document.body.classList.remove('menu-open');
         });
       });
     });

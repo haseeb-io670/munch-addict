@@ -1,0 +1,8 @@
+/* Custom Font Definitions */
+@font-face {
+  font-family: 'Roc Grotesk Condensed';
+  src: url('../fonts/roc-grotesk-condensed-black.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+} 

@@ -1,7 +1,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: 'roc-grotesk-condensed', sans-serif;
+  font-family: 'Fredoka', sans-serif;
 }
 
 body {
@@ -3482,10 +3482,11 @@ blockquote {
 }
 
 .font-h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -webkit-text-stroke: 3px #1C132F;
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: roc-grotesk-condensed, sans-serif;
   font-size: 6rem;
   font-weight: 800;
   line-height: 1;
