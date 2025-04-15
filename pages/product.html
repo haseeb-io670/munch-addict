@@ -28,48 +28,61 @@
 </head>
 <body>
 
-    <style>
-        @keyframes loader {
-          0% {
-            opacity: 1;
-            pointer-events: all;
-          }
-          100% {
-            opacity: 0;
-            pointer-events: none;
-          }
-        }
+  <div id="pageLoader" class="loader">
+    <div data-depth="0.2" class="w-embed w-script">
+      <img src="../public/images/preloader.svg" alt="Munch Addict Loader">
 
-        @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
+     
 
-        #chilli-bro {
-          display: block;
-          width: auto;
-          height: 30vh;
-        }
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var scene = document.getElementById("chilliMascotLoader");
+      var parallaxInstance = new Parallax(chilliMascotLoader);
+    });
+  </script>
 
-        #pageLoader {
-          pointer-events: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: loader 1s ease;
-          animation-fill-mode: forwards;
-          animation-delay: 3s;
-        }
-      </style>
-    </div>
-  </div>
+  <style>
+    @keyframes loader {
+      0% {
+        opacity: 1;
+        pointer-events: all;
+      }
+      100% {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    #chilli-bro {
+      display: block;
+      width: auto;
+      height: 30vh;
+    }
+
+    #pageLoader {
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: loader 1s ease;
+      animation-fill-mode: forwards;
+      animation-delay: 3s;
+    }
+  </style>
+</div>
+</div>
 
   <header class="navbar">
     <div class="container">
@@ -302,7 +315,7 @@
       <div class="footer-content">
         <div class="footer-logo">
           <img src="../public/images/62ed40e67bb9991bc2bb9fdc_favicon.png" alt="Global Munch Logo">
-          <p class="font-p">Bringing the heat to your sweet treats since 2022.</p>
+          <p class="font-p">Bringing the heat to your exotic snacks since 2022</p>
           <div class="social-links">
             <a href="#"><img src="../public/images/facebook-icon.svg" alt="Facebook"></a>
             <a href="#"><img src="../public/images/instagram-icon.svg" alt="Instagram"></a>

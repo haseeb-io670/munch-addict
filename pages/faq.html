@@ -142,142 +142,62 @@
 </head>
 
 <body>
+ 
   <div id="pageLoader" class="loader">
     <div data-depth="0.2" class="w-embed w-script">
-      <svg data-depth="2" id="chilli-bro" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 137 227.65" xmlns:v="https://vecta.io/nano">
-        <style>
-          .H {
-            fill: #051c2c
-          }
+      <img src="../public/images/preloader.svg" alt="Munch Addict Loader">
 
-          .I {
-            stroke: #051c2c
-          }
+     
 
-          .J {
-            stroke-linejoin: round
-          }
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var scene = document.getElementById("chilliMascotLoader");
+      var parallaxInstance = new Parallax(chilliMascotLoader);
+    });
+  </script>
 
-          .K {
-            stroke-width: 3.91
-          }
+  <style>
+    @keyframes loader {
+      0% {
+        opacity: 1;
+        pointer-events: all;
+      }
+      100% {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
 
-          .L {
-            fill: #F55D56
-          }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
 
-          .M {
-            stroke-linecap: round
-          }
+    #chilli-bro {
+      display: block;
+      width: auto;
+      height: 30vh;
+    }
 
-          .N {
-            fill: #069E51
-          }
-        </style>
-        <path
-          d="M123.46 142.16a55 55 0 0 1-36.87 52 54.38 54.38 0 0 1-12.75 2.81l-5.4.26c-1.82 0-3.62-.09-5.39-.26a54.38 54.38 0 0 1-12.75-2.81A55 55 0 1 1 89.56 91.34h0a55 55 0 0 1 33.9 50.82z"
-          fill="#fff"></path>
-        <g xmlns="http://www.w3.org/2000/svg" class="H eyes" id="chilliMascotLoader">
-          <ellipse class="eye" data-depth="4" cx="58.32" cy="138.66" rx="5.52" ry="6.22"></ellipse>
-          <ellipse class="eye" data-depth="4" cx="78.68" cy="138.66" rx="5.52" ry="6.22"></ellipse>
-        </g>
-        <path
-          d="M11.42 46.89l7.21 5.49a15.42 15.42 0 0 1 5.68 8.84h0a24.71 24.71 0 0 0 11.86 16h0a24.71 24.71 0 0 0 16.45 2.91l2.25-.39a25.3 25.3 0 0 0 19.36-15.83h0a39 39 0 0 0 1-25.11h0a53 53 0 0 0-6.81-14.41h0A53 53 0 0 0 52.86 9.28l-1.44-.92a1 1 0 0 0-1.48 1l.37 2.22a34.69 34.69 0 0 1-2 18.66h0a1 1 0 0 1-1.53.37h0A36.14 36.14 0 0 1 34.67 9.32l-1.14-6.56a1 1 0 0 0-1.69-.47l-2.78 3.24a28.31 28.31 0 0 0-6.84 18h0a28.39 28.39 0 0 0 2.5 12.08l2.09 4.65a1 1 0 0 1-1.09 1.34h0A16.06 16.06 0 0 0 13.49 44l-2 1.35a1 1 0 0 0-.07 1.54z"
-          fill="#fbba00" class="I J K"></path>
-        <ellipse cx="68.5" cy="220.44" rx="68.5" ry="7.2" class="H"></ellipse>
-        <path
-          d="M48.42,205.7l2.44-15h13.2l-4.4,27.1a2.19,2.19,0,0,1-2.2,2.2H19.18v-2.2c0-8.36,5.9-15.15,16.24-15.15A21.47,21.47,0,0,1,51.83,210"
-          class="I J K M N"></path>
-        <path d="M64.02 190.95l-1.75 10.73-12.83-2.26 1.42-8.77h11.49l1.67.3z" class="H"></path>
-        <path
-          d="M88.47,205.7l-2.45-15H72.82l4.4,27.1a2.2,2.2,0,0,0,2.2,2.2H117.7v-2.2c0-8.36-5.9-15.15-16.24-15.15A21.44,21.44,0,0,0,85.06,210"
-          class="I J K M N"></path>
-        <path d="M72.87 190.95l1.74 10.73 12.83-2.26-1.42-8.77H74.53l-1.66.3z" class="H"></path>
-        <g class="I J K">
-          <path
-            d="M89.6 91.36h0a55 55 0 1 0-26.55 105.56l5.39.26 5.4-.26a54.38 54.38 0 0 0 12.75-2.81 55 55 0 0 0 3-102.75zm-11 57.44c-5.62 0-10.19-6.08-10.19-13.58 0 7.5-4.55 13.58-10.18 13.58s-10.18-6.08-10.18-13.58a25.07 25.07 0 0 1 20.36 0 25.09 25.09 0 0 1 20.37 0c.03 7.5-4.53 13.58-10.15 13.58z"
-            class="L"></path>
-          <path d="M98,137.94C98,153.46,84.78,166,68.44,166s-29.59-12.58-29.59-28.1" fill="none" class="M"></path>
-        </g>
-        <g class="H">
-          <ellipse cx="98.03" cy="138.06" rx="4.74" ry="2.84"></ellipse>
-          <ellipse cx="38.85" cy="137.94" rx="4.74" ry="2.84"></ellipse>
-        </g>
-        <g class="I J K">
-          <path
-            d="M43 94.22l12 2.07a13.11 13.11 0 0 1 6.34 3l3.74 3.2a3.53 3.53 0 0 0 4.57 0l3.46-2.92a13.17 13.17 0 0 1 7.09-3L95 94.92a.44.44 0 0 0 .15-.83l-9.4-4.63a17.58 17.58 0 0 1-8.88-10.15l-3.74-11a29.87 29.87 0 0 0-8.73-13h0a39.24 39.24 0 0 0-17.62-8.72h-.17a5.78 5.78 0 0 0-6.66 3.78v.14a5.94 5.94 0 0 0 2.38 6.94l1 .66a33.54 33.54 0 0 1 13 16l.15.4a11.09 11.09 0 0 1 .31 7.15v.13a11.62 11.62 0 0 1-5.4 6.85l-8.45 4.87a.44.44 0 0 0 .06.71z"
-            class="N"></path>
-          <g class="L">
-            <path d="M68.44 135.22a25.07 25.07 0 0 0-20.36 0c0-7.5 4.56-13.58 10.18-13.58s10.18 6.08 10.18 13.58z">
-            </path>
-            <path d="M88.81 135.22a25.09 25.09 0 0 0-20.37 0c0-7.5 4.57-13.58 10.19-13.58s10.18 6.08 10.18 13.58z">
-            </path>
-          </g>
-        </g>
-        <path
-          d="M75,121.38a4.22,4.22,0,0,1-.73-8.37l8.92-1.57a3.68,3.68,0,0,1,.73-.07,4.22,4.22,0,0,1,.73,8.38l-8.91,1.57a4.62,4.62,0,0,1-.74.06Z"
-          class="L"></path>
-        <path
-          d="M84 113.33a2.26 2.26 0 0 1 2.23 1.87h0a2.26 2.26 0 0 1-1.84 2.62l-8.91 1.57a1.81 1.81 0 0 1-.4 0 2.26 2.26 0 0 1-.39-4.49l8.92-1.58a2.56 2.56 0 0 1 .39 0m0-3.91a6.44 6.44 0 0 0-1.07.09L74 111.08a6.18 6.18 0 0 0 1 12.26 6.56 6.56 0 0 0 1.08-.09l8.92-1.58a6.17 6.17 0 0 0 5-7.15 6.16 6.16 0 0 0-6.08-5.1z"
-          class="H"></path>
-        <path
-          d="M61.84,121.38a4.62,4.62,0,0,1-.74-.06l-8.91-1.57a4.22,4.22,0,0,1,.73-8.38,3.61,3.61,0,0,1,.73.07L62.57,113a4.22,4.22,0,0,1-.73,8.37Z"
-          class="L"></path>
-        <path
-          d="M52.92,113.33a2.56,2.56,0,0,1,.39,0l8.92,1.58a2.26,2.26,0,0,1-.39,4.49,1.81,1.81,0,0,1-.4,0l-8.91-1.57a2.26,2.26,0,0,1-1.84-2.62h0a2.27,2.27,0,0,1,2.23-1.87m0-3.91h0a6.17,6.17,0,0,0-1.07,12.25l8.91,1.58a6.56,6.56,0,0,0,1.08.09,6.18,6.18,0,0,0,1.07-12.26L54,109.51a6.35,6.35,0,0,0-1.07-.09Z"
-          class="H"></path>
-      </svg>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var scene = document.getElementById("chilliMascotLoader");
-          var parallaxInstance = new Parallax(chilliMascotLoader);
-        });
-      </script>
-
-      <style>
-        @keyframes loader {
-          0% {
-            opacity: 1;
-            pointer-events: all;
-          }
-          100% {
-            opacity: 0;
-            pointer-events: none;
-          }
-        }
-
-        @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        #chilli-bro {
-          display: block;
-          width: auto;
-          height: 30vh;
-        }
-
-        #pageLoader {
-          pointer-events: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: loader 1s ease;
-          animation-fill-mode: forwards;
-          animation-delay: 3s;
-        }
-      </style>
-    </div>
-  </div>
-
+    #pageLoader {
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: loader 1s ease;
+      animation-fill-mode: forwards;
+      animation-delay: 3s;
+    }
+  </style>
+</div>
+</div>
   <header class="navbar">
     <div class="container">
       <div class="navbar-logo">
@@ -416,7 +336,7 @@
       <div class="footer-content">
         <div class="footer-logo">
           <img src="../public/images/munch-addict.png" alt="Global Munch Logo">
-          <p class="font-p">Bringing the heat to your sweet treats since 2022.</p>
+          <p class="font-p">Bringing the heat to your exotic snacks since 2022</p>
           <div class="social-links">
             <a href="#"><img src="../public/images/facebook-icon.svg" alt="Facebook"></a>
             <a href="#"><img src="../public/images/instagram-icon.svg" alt="Instagram"></a>
