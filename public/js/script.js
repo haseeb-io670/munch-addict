@@ -138,21 +138,64 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle functionality
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const navbarLinks = document.querySelector('.navbar-links');
+  // const navbarLinks = document.querySelector('.navbar-links');
   
-  if (menuToggle) {
+  // Mobile menu categories dropdown functionality
+  const mobileMenuToggleBtn = document.querySelector('.mobile-nav-item.menu-toggle');
+  const mobileMenuDropdown = document.querySelector('.mobile-menu-dropdown');
+
+  if (mobileMenuToggleBtn && mobileMenuDropdown) {
+    console.log("Mobile menu toggle and dropdown found");
+    
+    mobileMenuToggleBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Menu toggle clicked");
+      
+      this.classList.toggle('active');
+      mobileMenuDropdown.classList.toggle('active');
+      
+      // Prevent event bubbling
+      return false;
+    });
+
+    // Close mobile menu dropdown when clicking on a category
+    const mobileMenuCategories = document.querySelectorAll('.mobile-menu-category');
+    mobileMenuCategories.forEach(category => {
+      category.addEventListener('click', () => {
+        mobileMenuToggleBtn.classList.remove('active');
+        mobileMenuDropdown.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.mobile-nav-item.menu-toggle') && 
+          !e.target.closest('.mobile-menu-dropdown')) {
+        mobileMenuToggleBtn.classList.remove('active');
+        mobileMenuDropdown.classList.remove('active');
+      }
+    });
+  } else {
+    console.log("Mobile menu toggle or dropdown not found", 
+                "Toggle:", mobileMenuToggleBtn, 
+                "Dropdown:", mobileMenuDropdown);
+  }
+  
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenuToggle.classList.toggle('active');
+      navbarLinks.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+  } else if (menuToggle) {
     menuToggle.addEventListener('click', function(e) {
       e.preventDefault();
       
-      // If we have the slide-in menu toggle, use it
-      if (mobileMenuToggle) {
-        mobileMenuToggle.click();
-      } else {
-        // Otherwise just toggle the navbar links visibility
-        if (navbarLinks) {
-          navbarLinks.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
-        }
+      // Otherwise just toggle the navbar links visibility
+      if (navbarLinks) {
+        navbarLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
       }
     });
   }

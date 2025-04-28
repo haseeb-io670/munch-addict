@@ -209,7 +209,7 @@
         <a href="../index.html" class="nav-link">Home</a>
         <a href="shop.html" class="nav-link">Shop</a>
         <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="#" class="nav-link">Stores</a>
+        <a href="store.html" class="nav-link">Stores</a>
         <a href="faq.html" class="nav-link active">FAQ</a>
       </nav>
       <div class="navbar-cart">
@@ -232,38 +232,7 @@
         <p class="font-p">Find answers to common questions about our products, shipping, and more.</p>
       </div>
       
-      <div class="faq-container">
-        <div class="faq-category">
-          <h2 class="font-h3 faq-category-title">About Our Products</h2>
-          
-          <div class="faq-item">
-            <div class="faq-question">How spicy are your candies?</div>
-            <div class="faq-answer">
-              <p class="font-p">Our candies range from mild to hot. We use a scale from 1-5 chilis to indicate spice level on each product. Level 1 has just a hint of heat, while level 5 will give you a good kick! Each product page shows the spice level so you can choose what's right for you.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">Are your products vegan?</div>
-            <div class="faq-answer">
-              <p class="font-p">Most of our products are vegan-friendly! We clearly label which products contain animal-derived ingredients. Our gummy bears and worms use plant-based gelatin alternatives, and we use natural colorings wherever possible.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">Do your candies contain common allergens?</div>
-            <div class="faq-answer">
-              <p class="font-p">Our facility processes products containing nuts and soy. All our products are gluten-free, but we always recommend checking the specific ingredient list on each product page if you have food allergies or sensitivities.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">What gives your candies their spicy flavor?</div>
-            <div class="faq-answer">
-              <p class="font-p">We use a proprietary blend of chili peppers and extracts to give our candies their signature kick. Our recipes balance sweetness with heat for a unique flavor experience that's addictive without being overwhelming.</p>
-            </div>
-          </div>
-        </div>
+     
         
         <div class="faq-category">
           <h2 class="font-h3 faq-category-title">Ordering & Shipping</h2>
@@ -315,7 +284,7 @@
           </div>
           
           <div class="faq-item">
-            <div class="faq-question">How should I store my candies?</div>
+            <div class="faq-question">How should I store my Exotic Snacks?</div>
             <div class="faq-answer">
               <p class="font-p">Our candies are best stored in a cool, dry place away from direct sunlight. While refrigeration isn't necessary, it can help preserve freshness in very warm climates. Always reseal the package after opening to maintain optimal texture and flavor.</p>
             </div>
@@ -336,7 +305,7 @@
       <div class="footer-content">
         <div class="footer-logo">
           <img src="../public/images/global-munch.gif" alt="Global Munch Logo">
-          <p class="font-p">Bringing the heat to your exotic snacks since 2022</p>
+          <p class="font-p">Bringing the heat to your exotic snacks since 2022</p>
           <div class="social-links">
             <a href="#"><img src="../public/images/facebook-icon.svg" alt="Facebook"></a>
             <a href="#"><img src="../public/images/instagram-icon.svg" alt="Instagram"></a>
@@ -376,24 +345,6 @@
     </div>
   </footer>
 
-  <script src="../public/js/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const faqQuestions = document.querySelectorAll('.faq-question');
-      
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-          // Toggle active class on the clicked question
-          this.classList.toggle('active');
-          
-          // Toggle active class on the associated answer
-          const answer = this.nextElementSibling;
-          answer.classList.toggle('active');
-        });
-      });
-    });
-  </script>
-
   <!-- Mobile Navbar (Only shows on small screens) -->
   <nav class="mobile-navbar">
     <div class="container">
@@ -412,7 +363,7 @@
         </svg>
         Shop
       </a>
-      <a href="#" class="mobile-nav-item">
+      <a href="cart.html" class="mobile-nav-item">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <circle cx="9" cy="21" r="1"></circle>
@@ -441,5 +392,69 @@
       </a>
     </div>
   </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu-dropdown">
+    <div class="mobile-menu-categories">
+      <a href="shop.html?category=drinks" class="mobile-menu-category">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M17 9l-3 6-3-6"></path>
+          <path d="M7 9v9a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3V9"></path>
+          <path d="M3 4h18c1 0 1 1 0 1L17 9H7L3 5c-1 0-1-1 0-1z"></path>
+        </svg>
+        Drinks
+      </a>
+      <a href="shop.html?category=snacks" class="mobile-menu-category">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
+          <path d="M14 3v5h5M9 13h6M9 17h6"></path>
+        </svg>
+        Snacks
+      </a>
+      <a href="shop.html?category=novelties" class="mobile-menu-category">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        Novelties
+      </a>
+      <a href="shop.html?category=chocolates" class="mobile-menu-category">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="M7 15V9"></path>
+          <path d="M12 15V9"></path>
+          <path d="M17 15V9"></path>
+        </svg>
+        Chocolates
+      </a>
+      <a href="shop.html?category=candies" class="mobile-menu-category">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+          <path d="M9 9h.01"></path>
+          <path d="M15 9h.01"></path>
+        </svg>
+        Candies
+      </a>
+    </div>
+  </div>
+
+  <script src="../public/js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          // Toggle active class on the clicked question
+          this.classList.toggle('active');
+          
+          // Toggle active class on the associated answer
+          const answer = this.nextElementSibling;
+          answer.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html> 
