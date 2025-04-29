@@ -1,14 +1,15 @@
 {
-    "name": "codeffy/chilli-bomba",
-    "description": "Candy Shop.",
+    "name": "codeffy/global-munch",
+    "description": "Global Munch.",
     "type": "project",
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "automattic/woocommerce": "dev-trunk"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Codeffy\\ChilliBomba\\": "src/"
+            "GlobalMunch\\": "src/"
         }
     },
     "authors": [

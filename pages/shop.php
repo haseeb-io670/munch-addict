@@ -93,9 +93,9 @@
       </div>
       <nav class="navbar-links">
         <a href="../index.html" class="nav-link">Home</a>
-        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="shop.php" class="nav-link active">Shop</a>
         <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="store.html" class="nav-link">Stores</a>
+        <a href="#" class="nav-link">Stores</a>
         <a href="faq.html" class="nav-link">FAQ</a>
       </nav>
       <div class="navbar-cart">
@@ -151,6 +151,20 @@
   <section class="product-grid">
     <div class="container">
       <div class="products">
+
+        <?php foreach($products as $product) { ?>
+          <div class="product-card" data-category="<?= $product ?>">
+            <div class="product-image">
+              <img src="../public/images/630e0c0576e726648ab320af_[Chilli Bomba] Sour Strawberry Bites Mockup.jpg" alt="Sour Strawberry Bites">
+            </div>
+            <div class="product-info">
+              <h3 class="font-h6 product-card-title">Sour Strawberry Bites</h3>
+              <p class="price">$8.99</p>
+              <a href="product.html" class="btn-secondary view-product">View Product</a>
+              <button class="btn-primary add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        <?php } ?>
         <!-- Product 1 -->
         <div class="product-card" data-category="bites">
           <div class="product-image">
@@ -296,10 +310,10 @@
         <div class="footer-links">
           <h3 class="font-h5">Shop</h3>
           <ul>
-            <li><a href="shop.html">All Products</a></li>
-            <li><a href="shop.html">Gummy Bears</a></li>
-            <li><a href="shop.html">Belts</a></li>
-            <li><a href="shop.html">Variety Packs</a></li>
+            <li><a href="shop.php">All Products</a></li>
+            <li><a href="shop.php">Gummy Bears</a></li>
+            <li><a href="shop.php">Belts</a></li>
+            <li><a href="shop.php">Variety Packs</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -377,6 +391,7 @@
         });
       }
 
+      // Mobile menu functionality
       const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
       const navbarLinks = document.querySelector('.navbar-links');
       
@@ -386,6 +401,7 @@
         document.body.classList.toggle('menu-open');
       });
 
+      // Close mobile menu when clicking on a link
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -407,7 +423,7 @@
         </svg>
         Home
       </a>
-      <a href="shop.html" class="mobile-nav-item active">
+      <a href="shop.php" class="mobile-nav-item active">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -445,55 +461,7 @@
     </div>
   </nav>
   
-  <!-- Mobile Menu Dropdown -->
-  <div class="mobile-menu-dropdown">
-    <div class="mobile-menu-categories">
-      <a href="shop.html?category=drinks" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M17 9l-3 6-3-6"></path>
-          <path d="M7 9v9a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3V9"></path>
-          <path d="M3 4h18c1 0 1 1 0 1L17 9H7L3 5c-1 0-1-1 0-1z"></path>
-        </svg>
-        Drinks
-      </a>
-      <a href="shop.html?category=snacks" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
-          <path d="M14 3v5h5M9 13h6M9 17h6"></path>
-        </svg>
-        Snacks
-      </a>
-      <a href="shop.html?category=novelties" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        Novelties
-      </a>
-      <a href="shop.html?category=chocolates" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-          <path d="M7 15V9"></path>
-          <path d="M12 15V9"></path>
-          <path d="M17 15V9"></path>
-       
-        Chocolates
-      </a>
-      <a href="shop.html?category=candies" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-          <path d="M9 9h.01"></path>
-          <path d="M15 9h.01"></path>
-        </svg>
-        Candies
-      </a>
-    </div>
-  </div>
-  
   <!-- Include cart.js -->
   <script src="../public/js/cart.js"></script>
-  <!-- Include main script -->
-  <script src="../public/js/script.js"></script> </svg>
 </body>
 </html> 
