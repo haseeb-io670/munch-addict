@@ -152,8 +152,7 @@
     <div class="container">
       <div class="products">
 
-        <?php foreach($products as $product) { ?>
-          <div class="product-card" data-category="<?= $product ?>">
+          <div class="product-card" data-category="bites">
             <div class="product-image">
               <img src="../public/images/630e0c0576e726648ab320af_[Chilli Bomba] Sour Strawberry Bites Mockup.jpg" alt="Sour Strawberry Bites">
             </div>
@@ -164,7 +163,6 @@
               <button class="btn-primary add-to-cart">Add to Cart</button>
             </div>
           </div>
-        <?php } ?>
         <!-- Product 1 -->
         <div class="product-card" data-category="bites">
           <div class="product-image">
