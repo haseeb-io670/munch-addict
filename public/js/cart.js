@@ -7,38 +7,55 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCartCount();
   
   // Add event listeners to all "Add to Cart" buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-      // Get product information
-      let productCard = this.closest('.product-card');
-      
+  document.getElementById('product-container').addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-to-cart')) {
+      let button = event.target;
+      let productCard = button.closest('.product-card');
+  
       if (productCard) {
-        // For products on shop page and featured products
         let productName = productCard.querySelector('.product-card-title').textContent;
         let productPrice = parseFloat(productCard.querySelector('.price').textContent.replace('$', ''));
         let productImage = productCard.querySelector('img').src;
-        
+  
         addToCart(productName, productPrice, productImage);
-      } else {
-        // We might be on a product detail page
-        let productContainer = document.querySelector('.product-info');
-        if (productContainer) {
-          let productName = productContainer.querySelector('h1, .font-h2').textContent;
-          let productPrice = parseFloat(productContainer.querySelector('.product-price').textContent.replace('$', ''));
-          let productImage = document.querySelector('#main-product-image, .product-main-image img').src;
-          let quantity = 1;
-          
-          // Check if there's a quantity input
-          let quantityInput = document.getElementById('quantity');
-          if (quantityInput) {
-            quantity = parseInt(quantityInput.value);
-          }
-          
-          addToCart(productName, productPrice, productImage, quantity);
-        }
       }
-    });
+    }
   });
+  // document.querySelectorAll('.add-to-cart').forEach(button => {
+  //   console.log('click');
+  //   button.addEventListener('click', function() {
+  //     // Get product information
+  //     let productCard = this.closest('.product-card');
+      
+  //     if (productCard) {
+  //       console.log(productCard);
+  //       // For products on shop page and featured products
+  //       let productName = productCard.querySelector('.product-card-title').textContent;
+  //       let productPrice = parseFloat(productCard.querySelector('.price').textContent.replace('$', ''));
+  //       let productImage = productCard.querySelector('img').src;
+        
+  //       addToCart(productName, productPrice, productImage);
+  //     } else {
+  //       // We might be on a product detail page
+  //       let productContainer = document.querySelector('.product-info');
+  //       console.log(productContainer);
+  //       if (productContainer) {
+  //         let productName = productContainer.querySelector('h1, .font-h2').textContent;
+  //         let productPrice = parseFloat(productContainer.querySelector('.product-price').textContent.replace('$', ''));
+  //         let productImage = document.querySelector('#main-product-image, .product-main-image img').src;
+  //         let quantity = 1;
+          
+  //         // Check if there's a quantity input
+  //         let quantityInput = document.getElementById('quantity');
+  //         if (quantityInput) {
+  //           quantity = parseInt(quantityInput.value);
+  //         }
+          
+  //         addToCart(productName, productPrice, productImage, quantity);
+  //       }
+  //     }
+  //   });
+  // });
   
   // Add to Cart function
   function addToCart(name, price, image, quantity = 1) {

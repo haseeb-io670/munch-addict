@@ -6,9 +6,4 @@ $productsApi = new GetProducts();
 
 $products = $productsApi->getAllProducts();
 
-foreach($products as $p) {
-    echo '<pre>';
-    print_r($p);
-    echo '</pre>';
-}
-exit;
+echo json_encode($products, true);

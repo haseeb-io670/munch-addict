@@ -249,43 +249,16 @@
   <section class="featured-products">
     <div class="container">
       <h2 class="font-h1">Featured Products</h2>
-      <div class="product-carousel owl-carousel">
-        <div class="product-card">
+      <div id="loader-featured-products" class="section-loader">
+        <p>Loading products...</p>
+      </div>
+      <div id="product-container" class="product-carousel owl-carousel">
+        <!-- <div class="product-card">
           <img src="public/images/products/product-1.jpg" alt="HI CHEW FANTASY">
           <h3 class="font-h6 product-card-title">HI CHEW FANTASY</h3>
           <p class="price">$8.99</p>
           <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="public/images/products/product-2.jpg" alt="FANTA JASMINE PEACH">
-          <h3 class="font-h6 product-card-title">FANTA JASMINE PEACH</h3>
-          <p class="price">$7.99</p>
-          <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="public/images/products/product-3.png" alt="Friend Bakery">
-          <h3 class="font-h6 product-card-title">FRIEND BAKERY COOKIES</h3>
-          <p class="price">$9.99</p>
-          <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="public/images/products/product-4.jpg" alt="POCKY">
-          <h3 class="font-h6 product-card-title">POCKY STRAWBERRY</h3>
-          <p class="price">$8.99</p>
-          <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="public/images/products/kitkat-sakura.jpg" alt="KITKAT SAKURA">
-          <h3 class="font-h6 product-card-title">KITKAT SAKURA MATCHA</h3>
-          <p class="price">$11.99</p>
-          <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="public/images/products/oreo-tiramisu.jpg" alt="OREO TIRAMISU">
-          <h3 class="font-h6 product-card-title">OREO TIRAMISU (ITALY)</h3>
-          <p class="price">$12.99</p>
-          <button class="btn-secondary add-to-cart">Add to Cart</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -584,47 +557,18 @@
   
   <!-- Mobile Menu Dropdown -->
   <div class="mobile-menu-dropdown">
-    <div class="mobile-menu-categories">
-      <a href="pages/shop.html?category=drinks" class="mobile-menu-category">
+    <div id="mobile-menu-container" class="mobile-menu-categories">
+      <div id="loader-navbar-categories" class="section-loader">
+        <p>Loading categories...</p>
+      </div>
+      <!-- <a href="pages/shop.html?category=drinks" class="mobile-menu-category">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M17 9l-3 6-3-6"></path>
           <path d="M7 9v9a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3V9"></path>
           <path d="M3 4h18c1 0 1 1 0 1L17 9H7L3 5c-1 0-1-1 0-1z"></path>
         </svg>
         Drinks
-      </a>
-      <a href="pages/shop.html?category=snacks" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
-          <path d="M14 3v5h5M9 13h6M9 17h6"></path>
-        </svg>
-        Snacks
-      </a>
-      <a href="pages/shop.html?category=novelties" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        Novelties
-      </a>
-      <a href="pages/shop.html?category=chocolates" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-          <path d="M7 15V9"></path>
-          <path d="M12 15V9"></path>
-          <path d="M17 15V9"></path>
-        </svg>
-        Chocolates
-      </a>
-      <a href="pages/shop.html?category=candies" class="mobile-menu-category">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-          <path d="M9 9h.01"></path>
-          <path d="M15 9h.01"></path>
-        </svg>
-        Candies
-      </a>
+      </a> -->
     </div>
   </div>
   
@@ -632,5 +576,8 @@
   <script src="public/js/cart.js"></script>
   <!-- Include main script -->
   <script src="public/js/script.js"></script>
+
+  <script src="public/js/woocommerce/load-categories.js"></script>
+  <script src="public/js/woocommerce/load-products.js"></script>
 </body>
 </html> 
