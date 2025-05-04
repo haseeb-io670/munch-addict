@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
-use GlobalMunch\WooCommerce\Categories\GetCategories;
+use GlobalMunch\WooCommerce\API\Categories\GetCategories;
 
 $categoriesApi = new GetCategories();
 

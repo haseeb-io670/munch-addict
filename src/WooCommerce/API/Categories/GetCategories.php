@@ -1,5 +1,5 @@
 <?php
-namespace GlobalMunch\WooCommerce\Categories;
+namespace GlobalMunch\WooCommerce\API\Categories;
 
 // require __DIR__ . '/../../vendor/autoload.php';
 use GlobalMunch\WooCommerce\Connection;
