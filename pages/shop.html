@@ -124,14 +124,17 @@
         <div class="filter-group">
           <label>Filter by:</label>
           <select id="category-filter">
-            <option value="all">All Products</option>
-            <option value="belts">Drinks</option>
+            <div id="loader-category" class="section-loader">
+              <p id="shop" class="font-h3">Loading products...</p>
+            </div>
+            <option selected value="all">All Products</option>
+            <!-- <option value="belts">Drinks</option>
             <option value="gummies">Chips and savory</option>
             <option value="tubes">Candy and sweets</option>
             <option value="bites">Cookies, Crackers and Bakery</option>
             <option value="bites">Ramen and instant food</option>
             <option value="bites">Novelties</option>
-            <option value="bites">Other</option>
+            <option value="bites">Other</option> -->
           </select>
         </div>
         <div class="filter-group">
@@ -151,7 +154,7 @@
   <section class="product-grid">
     <div class="container">
       <div id="loader-featured-products" class="section-loader">
-        <p>Loading products...</p>
+        <p id="shop">Loading products...</p>
       </div>
       <div id="product-container" class="products">
           <!-- <div class="product-card" data-category="bites">
@@ -361,5 +364,6 @@
   <!-- Include cart.js -->
   <script src="../public/js/cart.js"></script>
   <script src="../public/js/woocommerce/load-products-by-category.js"></script>
+  <script src="../public/js/woocommerce/load-filter-categories.js"></script>
 </body>
 </html> 

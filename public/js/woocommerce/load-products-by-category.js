@@ -16,7 +16,8 @@ function loadProducts(category = null) {
             try {
                 const products = typeof response === 'string' ? JSON.parse(response) : response;
                 
-                if (Array.isArray(products)) {
+                console.log(products);
+                if (Array.isArray(products) && products.length > 0) {
                     // Clear existing products
                     productContainer.innerHTML = '';
                     
@@ -28,7 +29,7 @@ function loadProducts(category = null) {
                         
                         productCard.innerHTML = `
                             <div class="product-image">
-                                <img src="${product.image_url || ''}" alt="${product.name || ''}">
+                                <img src="${product.images[0].src || ''}" alt="${product.name || ''}">
                             </div>
                             <div class="product-info">
                                 <h3 class="font-h6 product-card-title">${product.name || ''}</h3>
@@ -48,7 +49,7 @@ function loadProducts(category = null) {
                     // Initialize event listeners for new products
                     initializeProductEventListeners();
                 } else {
-                    throw new Error('Invalid product data format');
+                    showError('No products found for category.');
                 }
             } catch (error) {
                 console.error('Error processing products:', error);
@@ -63,8 +64,8 @@ function loadProducts(category = null) {
 
     function showError(message) {
         loader.style.display = 'none';
-        productContainer.style.display = 'grid';
-        productContainer.innerHTML = `<p class="error-message">${message}</p>`;
+        productContainer.style.display = 'block';
+        productContainer.innerHTML = `<center><p class="error-message">${message}</p></center>`;
     }
 }
 
@@ -81,9 +82,71 @@ function initializeProductEventListeners() {
     });
 }
 
+// Function to load products via AJAX
+function loadCategories() {
+    const loader = document.getElementById('loader-category');
+    const categoryContainer = document.getElementById('category-filter');
+    
+    // Show loader
+    loader.style.display = 'block';
+    categoryContainer.style.display = 'none';
+
+    // Prepare the AJAX request
+    $.ajax({
+        url: '../../api/category/get.php',
+        method: 'GET',
+        // data: category ? { category: category } : {},
+        success: function(response) {
+            try {
+                const categories = typeof response === 'string' ? JSON.parse(response) : response;
+                
+                if (Array.isArray(categories)) {
+                    // Clear existing categories
+                    // categoryContainer.innerHTML = '';
+                    
+                    // Generate HTML for each product
+                    categories.forEach(category => {
+                        const categoryItem = document.createElement('option');
+                        categoryItem.setAttribute('value', category.id);
+
+                        if(category.slug == 'uncategorized') {
+                            categoryItem.textContent = 'Other';
+                        } else {
+                            categoryItem.textContent = `${category.name}`;
+                        }
+                        
+                        categoryContainer.appendChild(categoryItem);
+                    });
+                    
+                    // Hide loader and show categories
+                    loader.style.display = 'none';
+                    categoryContainer.style.display = 'block';
+                    
+                } else {
+                    throw new Error('Invalid categories data format');
+                }
+            } catch (error) {
+                console.error('Error processing categories:', error);
+                showError('Error loading categories. Please try again.');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+            showError('Error loading categories. Please try again.');
+        }
+    });
+
+    function showError(message) {
+        loader.style.display = 'none';
+        categoryContainer.style.display = 'grid';
+        categoryContainer.innerHTML = `<p class="error-message">${message}</p>`;
+    }
+}
+
 // Initialize when document is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Initial load of all products
+    loadCategories();
     loadProducts();
     
     // Category filter change handler

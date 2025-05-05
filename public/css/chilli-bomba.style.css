@@ -355,6 +355,10 @@ a:hover {
   color: #fff;
 }
 
+.section-loader > p#shop {
+  color: var(--red);
+}
+
 .section-loader > p {
   display: flex;
   align-items: center;

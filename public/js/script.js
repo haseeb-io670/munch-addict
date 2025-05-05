@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (categoryFilter && sortFilter) {
     const products = document.querySelectorAll('.product-card');
     
-    categoryFilter.addEventListener('change', function() {
-      filterProducts(products, this.value);
-    });
+    // categoryFilter.addEventListener('change', function() {
+    //   filterProducts(products, this.value);
+    // });
     
     sortFilter.addEventListener('change', function() {
       sortProducts(products, this.value);
